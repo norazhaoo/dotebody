@@ -1,113 +1,108 @@
 /**
- * dote. body — Homepage Interactivity
+ * dote. body — Coming Soon Page
  */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ===== Navbar Scroll Effect =====
-  const navbar = document.getElementById('navbar');
-  let lastScroll = 0;
-
-  window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    if (currentScroll > 60) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-    lastScroll = currentScroll;
-  }, { passive: true });
-
-  // ===== Mobile Menu Toggle =====
-  const navToggle = document.getElementById('nav-toggle');
-  const navLinks = document.getElementById('nav-links');
-
-  navToggle.addEventListener('click', () => {
-    navToggle.classList.toggle('open');
-    navLinks.classList.toggle('open');
-    document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
-  });
-
-  // Close mobile menu on link click
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navToggle.classList.remove('open');
-      navLinks.classList.remove('open');
-      document.body.style.overflow = '';
-    });
-  });
-
-  // ===== Scroll Reveal (Intersection Observer) =====
+  // ===== Scroll Reveal =====
   const revealElements = document.querySelectorAll('.reveal');
-
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
+  // Trigger immediately since it's a single-screen page
+  setTimeout(() => {
+    revealElements.forEach((el, i) => {
+      setTimeout(() => el.classList.add('visible'), i * 120);
     });
-  }, {
-    threshold: 0.15,
-    rootMargin: '0px 0px -60px 0px'
-  });
+  }, 200);
 
-  revealElements.forEach(el => revealObserver.observe(el));
+  // ===== Floating Particles =====
+  const particlesContainer = document.getElementById('particles');
 
-  // ===== Smooth Scroll for Anchor Links =====
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const targetId = this.getAttribute('href');
-      if (targetId === '#') return;
+  function createParticle() {
+    const particle = document.createElement('div');
+    particle.classList.add('particle');
 
+    const size = Math.random() * 6 + 2;
+    const x = Math.random() * 100;
+    const duration = Math.random() * 12 + 10;
+    const delay = Math.random() * 8;
+    const hue = 200 + Math.random() * 20; // blue range matching brand
+    const lightness = 70 + Math.random() * 20;
+
+    particle.style.cssText = `
+      width: ${size}px;
+      height: ${size}px;
+      left: ${x}%;
+      bottom: -10px;
+      background: hsl(${hue}, 50%, ${lightness}%);
+      animation-duration: ${duration}s;
+      animation-delay: ${delay}s;
+    `;
+
+    particlesContainer.appendChild(particle);
+  }
+
+  // Create particles
+  for (let i = 0; i < 25; i++) {
+    createParticle();
+  }
+
+  // ===== Email Signup =====
+  const form = document.getElementById('signup-form');
+  const successMsg = document.getElementById('signup-success');
+  const emailInput = document.getElementById('email-input');
+  const submitBtn = document.getElementById('signup-btn');
+
+  if (form) {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const targetEl = document.querySelector(targetId);
-      if (targetEl) {
-        const navHeight = navbar.offsetHeight;
-        const targetPosition = targetEl.getBoundingClientRect().top + window.pageYOffset - navHeight;
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
-      }
-    });
-  });
 
-  // ===== Newsletter Form =====
-  const newsletterForm = document.getElementById('newsletter-form');
-  if (newsletterForm) {
-    newsletterForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const input = newsletterForm.querySelector('input');
-      const btn = newsletterForm.querySelector('button');
-      const originalText = btn.textContent;
+      const email = emailInput.value.trim();
+      if (!email) return;
 
-      btn.textContent = '✓ Subscribed!';
-      btn.style.background = '#A8C3A0';
-      input.value = '';
+      const btnText = submitBtn.querySelector('.btn-text');
+      const btnIcon = submitBtn.querySelector('.btn-icon');
 
-      setTimeout(() => {
-        btn.textContent = originalText;
-        btn.style.background = '';
-      }, 3000);
+      // Show loading state
+      btnText.textContent = 'Sending...';
+      btnIcon.textContent = '⏳';
+      submitBtn.disabled = true;
+
+      // Send via formsubmit.co
+      fetch('https://formsubmit.co/ajax/norazhao039@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          email: email,
+          _subject: 'New dote. body subscriber! 🎉',
+          message: email + ' wants to be notified when dote. body launches.'
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Show success
+        form.style.display = 'none';
+        document.querySelector('.signup-note').style.display = 'none';
+        successMsg.classList.add('show');
+      })
+      .catch(error => {
+        // Fallback: open mailto
+        window.location.href = 'mailto:norazhao039@gmail.com?subject=dote.%20body%20Subscription%20Request&body=Hi!%20' + encodeURIComponent(email) + '%20would%20like%20to%20be%20notified%20when%20dote.%20body%20launches.';
+
+        // Still show success
+        form.style.display = 'none';
+        document.querySelector('.signup-note').style.display = 'none';
+        successMsg.classList.add('show');
+      })
+      .finally(() => {
+        emailInput.value = '';
+        btnText.textContent = 'Notify Me';
+        btnIcon.textContent = '→';
+        submitBtn.disabled = false;
+      });
     });
   }
 
-  // ===== Parallax-lite on Hero Image =====
-  const heroImage = document.querySelector('.hero__image img');
-  if (heroImage && window.innerWidth > 768) {
-    window.addEventListener('scroll', () => {
-      const scrolled = window.pageYOffset;
-      const rate = scrolled * 0.15;
-      heroImage.style.transform = `translateY(${-rate}px)`;
-    }, { passive: true });
-  }
-
-  // ===== Ingredient Tag hover ripple =====
-  document.querySelectorAll('.ingredient-tag').forEach(tag => {
-    tag.addEventListener('mouseenter', () => {
-      tag.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
-    });
-  });
 
 });

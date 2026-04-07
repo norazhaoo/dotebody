@@ -3,317 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>dote. body — Natural Deodorant for Every Body</title>
-  <meta name="description" content="dote. body crafts aluminum-free, naturally-derived deodorants that keep you fresh all day. Clean ingredients, beautiful scents, zero compromise.">
-  <meta name="keywords" content="natural deodorant, aluminum free, clean beauty, dote body, organic skincare">
+  <title>dote. body — Coming Soon</title>
+  <meta name="description" content="dote. body — Clean, naturally-derived deodorant. Coming soon.">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Styles -->
   <link rel="stylesheet" href="index.css">
-
-  <!-- Favicon (inline SVG) -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🫧</text></svg>">
 </head>
 <body>
 
-  <!-- ===== Navbar ===== -->
-  <nav class="navbar" id="navbar">
-    <div class="container">
-      <a href="#" aria-label="dote. body home">
-        <img src="assets/images/logo.png" alt="dote. body logo" class="navbar__logo" id="nav-logo">
+  <!-- Floating particles background -->
+  <div class="particles" id="particles" aria-hidden="true"></div>
+
+  <!-- Main Content -->
+  <main class="coming-soon">
+
+    <!-- Logo -->
+    <div class="logo-wrap reveal">
+      <img src="assets/images/logo.png" alt="dote. body" class="logo" id="logo">
+    </div>
+
+    <!-- Headline -->
+    <div class="headline reveal reveal-delay-1">
+      <p class="label">Natural Deodorant</p>
+      <h1>Something <em>fresh</em> is coming.</h1>
+      <p class="subtitle">Clean ingredients. Beautiful scents. Zero compromise.<br>We're crafting something special — stay tuned.</p>
+    </div>
+
+    <!-- Email Signup -->
+    <div class="signup reveal reveal-delay-3">
+      <form class="signup-form" id="signup-form">
+        <input type="email" placeholder="Enter your email" aria-label="Email address" required id="email-input">
+        <button type="submit" id="signup-btn">
+          <span class="btn-text">Notify Me</span>
+          <span class="btn-icon">→</span>
+        </button>
+      </form>
+      <p class="signup-note">Be the first to know when we launch.</p>
+      <div class="signup-success" id="signup-success">
+        <span class="success-icon">✓</span>
+        <span>You're on the list! We'll be in touch.</span>
+      </div>
+    </div>
+
+    <!-- Social Links -->
+    <div class="socials reveal reveal-delay-4">
+      <a href="https://www.instagram.com/dote.body?igsh=dzg5bGlvMTZleml3&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-link">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5"/>
+          <circle cx="12" cy="12" r="5"/>
+          <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+        </svg>
       </a>
-      <div class="navbar__links" id="nav-links">
-        <a href="#benefits">Why dote.</a>
-        <a href="#products">Products</a>
-        <a href="#ingredients">Ingredients</a>
-        <a href="#mission">Our Mission</a>
-        <a href="#cta" class="navbar__cta">Shop Now</a>
-      </div>
-      <button class="navbar__toggle" id="nav-toggle" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
     </div>
-  </nav>
 
-  <!-- ===== Hero ===== -->
-  <section class="hero" id="hero">
-    <div class="container">
-      <div class="hero__content">
-        <div class="hero__badge reveal">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
-          </svg>
-          Aluminum Free &amp; Naturally Derived
-        </div>
-        <h1 class="hero__title reveal reveal-delay-1">
-          Care for your body, <em>naturally.</em>
-        </h1>
-        <p class="hero__subtitle reveal reveal-delay-2">
-          Clean deodorant that actually works. Made with plant-based ingredients
-          that keep you fresh from sunrise to sunset&mdash;without the nasties.
-        </p>
-        <div class="hero__actions reveal reveal-delay-3">
-          <a href="#cta" class="btn-primary" id="hero-shop-btn">
-            Discover Our Scents
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
-          <a href="#ingredients" class="btn-secondary" id="hero-learn-btn">
-            Our Ingredients →
-          </a>
-        </div>
-      </div>
-      <div class="hero__image reveal reveal-delay-2">
-        <img src="assets/images/hero-product.png" alt="dote. Daily Deodorant with eucalyptus">
-        <div class="hero__image-badge">
-          <div class="hero__image-badge-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            </svg>
-          </div>
-          <div class="hero__image-badge-text">
-            Aluminum Free
-            <span>Naturally derived</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  </main>
 
-  <!-- ===== Marquee Strip ===== -->
-  <div class="marquee-strip" aria-hidden="true">
-    <div class="marquee-track" id="marquee-track">
-      <span>Clean Beauty</span>
-      <span>Vegan Formula</span>
-      <span>Cruelty Free</span>
-      <span>Aluminum Free</span>
-      <span>Paraben Free</span>
-      <span>Sustainable Packaging</span>
-      <span>Plant-Based</span>
-      <!-- duplicated for seamless loop -->
-      <span>Clean Beauty</span>
-      <span>Vegan Formula</span>
-      <span>Cruelty Free</span>
-      <span>Aluminum Free</span>
-      <span>Paraben Free</span>
-      <span>Sustainable Packaging</span>
-      <span>Plant-Based</span>
-    </div>
-  </div>
-
-  <!-- ===== Benefits ===== -->
-  <section class="section benefits" id="benefits">
-    <div class="container">
-      <div class="benefits__header reveal">
-        <span class="text-accent">Why dote.</span>
-        <h2>Better for you.<br>Better for the planet.</h2>
-        <p>We believe that what you put on your body matters just as much as what you put in it. That's why every dote. product is crafted with intention.</p>
-      </div>
-      <div class="benefits__grid">
-        <div class="benefit-card reveal reveal-delay-1">
-          <div class="benefit-card__icon benefit-card__icon--blue">🌿</div>
-          <h4>Natural Ingredients</h4>
-          <p>Powered by plant-based actives like shea butter, coconut oil, and essential oils. No synthetics, no compromises.</p>
-        </div>
-        <div class="benefit-card reveal reveal-delay-2">
-          <div class="benefit-card__icon benefit-card__icon--lavender">🧴</div>
-          <h4>All-Day Freshness</h4>
-          <p>Our mineral-based formula works to neutralize odor at the source, helping you stay fresh and confident.</p>
-        </div>
-        <div class="benefit-card reveal reveal-delay-3">
-          <div class="benefit-card__icon benefit-card__icon--sage">♻️</div>
-          <h4>Eco-Conscious Packaging</h4>
-          <p>We use recyclable materials and soy-based inks, and are working toward reducing our environmental footprint every day.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Products ===== -->
-  <section class="section products" id="products">
-    <div class="container">
-      <div class="products__layout">
-        <div class="products__image reveal">
-          <img src="assets/images/product-lineup.png" alt="Three dote. deodorant scents — Sea Mist, Lavender, and Sage">
-        </div>
-        <div class="products__content">
-          <span class="text-accent reveal">Our Collection</span>
-          <h2 class="reveal reveal-delay-1">Find your <em>signature</em> scent.</h2>
-          <p class="reveal reveal-delay-2">Each scent is thoughtfully blended using naturally-derived fragrance oils. Subtle, sophisticated, and uniquely you.</p>
-          <div class="scent-list reveal reveal-delay-3">
-            <div class="scent-item">
-              <span class="scent-item__dot scent-item__dot--blue"></span>
-              <span class="scent-item__name">Sea Mist &amp; Lime</span>
-              <span class="scent-item__desc">Fresh &amp; invigorating</span>
-            </div>
-            <div class="scent-item">
-              <span class="scent-item__dot scent-item__dot--lavender"></span>
-              <span class="scent-item__name">Lavender &amp; Oat</span>
-              <span class="scent-item__desc">Calming &amp; soothing</span>
-            </div>
-            <div class="scent-item">
-              <span class="scent-item__dot scent-item__dot--sage"></span>
-              <span class="scent-item__name">Eucalyptus &amp; Sage</span>
-              <span class="scent-item__desc">Earthy &amp; grounding</span>
-            </div>
-          </div>
-          <a href="#cta" class="btn-primary reveal reveal-delay-4" id="products-shop-btn">
-            Shop the Collection
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Ingredients ===== -->
-  <section class="section ingredients" id="ingredients">
-    <div class="container">
-      <div class="ingredients__layout">
-        <div class="ingredients__content">
-          <span class="text-accent reveal">Clean Ingredients</span>
-          <h2 class="reveal reveal-delay-1">Transparent about <em>everything</em> inside.</h2>
-          <p class="reveal reveal-delay-2">We list every single ingredient and tell you exactly why it's there. No hidden chemicals, no greenwashing&mdash;just honest, effective formulas.</p>
-          <div class="ingredient-tags reveal reveal-delay-3">
-            <span class="ingredient-tag">Shea Butter</span>
-            <span class="ingredient-tag">Coconut Oil</span>
-            <span class="ingredient-tag">Baking Soda</span>
-            <span class="ingredient-tag">Arrowroot Powder</span>
-            <span class="ingredient-tag">Vitamin E</span>
-            <span class="ingredient-tag">Tea Tree Oil</span>
-            <span class="ingredient-tag">Lavender Oil</span>
-            <span class="ingredient-tag">Eucalyptus Oil</span>
-          </div>
-          <a href="#cta" class="btn-primary reveal reveal-delay-4" id="ingredients-learn-btn">
-            Learn More
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
-        </div>
-        <div class="ingredients__image reveal reveal-delay-2">
-          <img src="assets/images/ingredients.png" alt="Natural ingredients used in dote. deodorants">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Mission Section ===== -->
-  <section class="section testimonials" id="mission">
-    <div class="container">
-      <div class="testimonials__header reveal">
-        <span class="text-accent">Our Mission</span>
-        <h2>Why we started <em>dote.</em></h2>
-      </div>
-      <div class="testimonials__grid">
-        <div class="testimonial-card reveal reveal-delay-1">
-          <div class="testimonial-card__stars">🌱</div>
-          <p class="testimonial-card__text">We believe personal care shouldn't come at the cost of your health or the environment. Every ingredient we use is chosen with purpose and transparency.</p>
-          <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar" style="background: linear-gradient(135deg, var(--color-sage), #7BA573);">🌍</div>
-            <div>
-              <div class="testimonial-card__name">Clean Formulas</div>
-              <div class="testimonial-card__title">No aluminum, no parabens, no phthalates</div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card reveal reveal-delay-2">
-          <div class="testimonial-card__stars">✨</div>
-          <p class="testimonial-card__text">We're committed to full transparency. Every ingredient is listed, explained, and traceable. What you see is what you get — nothing hidden, nothing vague.</p>
-          <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar" style="background: linear-gradient(135deg, var(--color-brand), var(--color-brand-dark));">📋</div>
-            <div>
-              <div class="testimonial-card__name">Full Transparency</div>
-              <div class="testimonial-card__title">Every ingredient explained</div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card reveal reveal-delay-3">
-          <div class="testimonial-card__stars">🤝</div>
-          <p class="testimonial-card__text">We're a small team with big goals. We're continuously improving our formulas and reducing our packaging footprint — and we'd love you to be part of this journey.</p>
-          <div class="testimonial-card__author">
-            <div class="testimonial-card__avatar" style="background: linear-gradient(135deg, var(--color-lavender), #A08AB5);">💜</div>
-            <div>
-              <div class="testimonial-card__name">Growing Together</div>
-              <div class="testimonial-card__title">A community-driven brand</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CTA ===== -->
-  <section class="section cta" id="cta">
-    <div class="container">
-      <div class="cta__card reveal">
-        <h2>Ready to make the switch?</h2>
-        <p>Join us on the journey toward cleaner, more conscious personal care. Your body (and the planet) will thank you.</p>
-        <a href="#" class="btn-primary" id="cta-shop-btn">
-          Start Your Journey
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
-            <path d="M5 12h14M12 5l7 7-7 7"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Footer ===== -->
-  <footer class="footer" id="footer">
-    <div class="container">
-      <div class="footer__grid">
-        <div class="footer__brand">
-          <img src="assets/images/logo.png" alt="dote. body" class="footer__brand-logo">
-          <p>Clean deodorant crafted with care. Better for you, better for the planet.</p>
-        </div>
-        <div>
-          <h5>Shop</h5>
-          <ul>
-            <li><a href="#">All Products</a></li>
-            <li><a href="#">Sea Mist & Lime</a></li>
-            <li><a href="#">Lavender & Oat</a></li>
-            <li><a href="#">Eucalyptus & Sage</a></li>
-            <li><a href="#">Gift Sets</a></li>
-          </ul>
-        </div>
-        <div>
-          <h5>Company</h5>
-          <ul>
-            <li><a href="#">Our Story</a></li>
-            <li><a href="#">Ingredients</a></li>
-            <li><a href="#">Sustainability</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer__newsletter">
-          <h5>Stay in the loop</h5>
-          <p>Be the first to know about new scents and updates from dote.</p>
-          <form class="footer__newsletter-form" id="newsletter-form">
-            <input type="email" placeholder="Your email address" aria-label="Email address" required>
-            <button type="submit">Subscribe</button>
-          </form>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <span>&copy; 2026 dote. body. All rights reserved.</span>
-        <div class="footer__bottom-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-          <a href="#">Accessibility</a>
-        </div>
-      </div>
-    </div>
+  <!-- Footer -->
+  <footer class="footer">
+    <span>&copy; 2026 dote. body</span>
   </footer>
 
   <script src="index.js"></script>
